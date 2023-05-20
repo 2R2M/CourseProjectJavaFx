@@ -11,7 +11,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 public class AiModel {
-    private String apiKey = "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";
+    private String apiKey = "";
     private String prompt = "";
     public String getPrompt() {
         return prompt;
