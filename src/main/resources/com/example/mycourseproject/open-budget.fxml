@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.5" prefHeight="800" prefWidth="800" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.BudgetController">
+   <items>
+      <Pane>
+         <children>
+           <Label layoutX="176.8000030517578" layoutY="262.3999938964844" styleClass="subtitle-label" text="Доходы" />
+           <ListView fx:id="incomeListView" layoutX="10.0" layoutY="10.0" prefHeight="427.0" prefWidth="376.0" styleClass="list-view" />
+
+                <GridPane alignment="CENTER" hgap="10" layoutX="41.0" layoutY="473.0" prefHeight="170.0" prefWidth="315.0" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" maxWidth="285.4" minWidth="116.39998474121091" prefWidth="116.39998474121091" />
+                        <ColumnConstraints halignment="LEFT" maxWidth="263.6000152587891" minWidth="19.199969482421864" prefWidth="121.20001525878904" />
+                     <ColumnConstraints maxWidth="215.40000000000003" minWidth="6.0" prefWidth="55.99998474121094" />
+                    </columnConstraints>
+                    <Button mnemonicParsing="false" onAction="#uploadIncome" text="Загрузить" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label text="Название:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField promptText="Введите название" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Дата:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Сумма:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField promptText="Введите сумму" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Button text="Добавить" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                    <TextField promptText="Номер для удаления" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Button onAction="#DeleteIncome" text="Удалить" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  </rowConstraints>
+                </GridPane>
+         </children>
+      </Pane>
+      <Pane>
+         <children>
+           <Label layoutX="111.19999694824219" layoutY="201.60000610351562" styleClass="subtitle-label" text="Расходы" />
+           <ListView fx:id="expenseListView" layoutX="11.0" layoutY="10.0" prefHeight="427.0" prefWidth="376.0" styleClass="list-view" />
+             <GridPane alignment="CENTER" hgap="10" layoutX="41.0" layoutY="473.0" prefHeight="170.0" prefWidth="315.0" vgap="10">
+                 <columnConstraints>
+                     <ColumnConstraints halignment="RIGHT" maxWidth="285.4" minWidth="116.39998474121091" prefWidth="116.39998474121091" />
+                     <ColumnConstraints halignment="LEFT" maxWidth="263.6000152587891" minWidth="19.199969482421864" prefWidth="121.20001525878904" />
+                     <ColumnConstraints maxWidth="215.40000000000003" minWidth="6.0" prefWidth="55.99998474121094" />
+                 </columnConstraints>
+                 <Button mnemonicParsing="false" onAction="#uploadExpence" text="Загрузить" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                 <Label text="Название:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                 <TextField promptText="Введите название" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                 <Label text="Дата:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                 <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                 <Label text="Сумма:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                 <TextField promptText="Введите сумму" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                 <Button text="Добавить" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                 <TextField promptText="Номер для удаления" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                 <Button onAction="#DeleteIncome" text="Удалить" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                 <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                 </rowConstraints>
+             </GridPane>
+         </children>
+      </Pane>
+   </items>
+</SplitPane>

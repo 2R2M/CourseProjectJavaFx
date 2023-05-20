@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.HelloController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <Label styleClass="title-label" text="Мои бюджеты" />
+
+    <ListView fx:id="budgetListView" styleClass="list-view" />
+   <Button mnemonicParsing="false" text="Обновить"  onAction="#updateBudget"/>
+    <Button onAction="#createBudget" styleClass="main-button" text="Создать бюджет" />
+    <Button onAction="#openExpenseChart" styleClass="main-button" text="Посмотреть графики расходов" />
+    <Button onAction="#openExpenseForecast" styleClass="main-button" text="Спрогнозировать расходы" />
+</VBox>

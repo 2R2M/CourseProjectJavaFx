@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.Prediction">
+   <children>
+                   <Label layoutX="14.0" layoutY="14.0" styleClass="title-label" text="Прогноз расходов" />
+                    <Button layoutX="226.0" layoutY="238.0" onAction="#generateAnswer" styleClass="main-button" text="Сгенерировать прогноз" />
+                    <TextArea fx:id="AnsTextArea" editable="false" layoutX="15.0" layoutY="340.0" prefHeight="192.0" prefWidth="564.0" styleClass="forecast-text-area" />
+      <TextArea fx:id="QwTextAria" layoutX="18.0" layoutY="78.0" prefHeight="109.0" prefWidth="564.0" />
+   </children>
+</Pane>

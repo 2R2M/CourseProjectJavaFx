@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.5" prefHeight="452.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.Charts">
+   <items>
+
+          <VBox spacing="10">
+           <HBox spacing="10">
+
+                <Label styleClass="title-label" text="Графики расходов" />
+               <LineChart fx:id="expenseChart" styleClass="line-chart">
+                   <xAxis>
+                       <CategoryAxis fx:id="xAxis_expense" />
+                   </xAxis>
+                   <yAxis>
+                       <NumberAxis fx:id="yAxis_expense" />
+                   </yAxis>
+               </LineChart>
+           </HBox>
+           <HBox spacing="10">
+               <Button onAction="#updateChartExpense" styleClass="main-button" text="Обновить график" />
+               <Button onAction="#showStatistics" styleClass="main-button" text="Показать статистику" />
+           </HBox>
+       </VBox>
+       <VBox spacing="10">
+           <HBox spacing="10">
+
+               <Label styleClass="title-label" text="Графики расходов" />
+               <LineChart fx:id="incomeChart" styleClass="line-chart">
+                   <xAxis>
+                       <CategoryAxis fx:id="xAxis_income" />
+                   </xAxis>
+                   <yAxis>
+                       <NumberAxis fx:id="yAxis_income" />
+                   </yAxis>
+               </LineChart>
+           </HBox>
+           <HBox spacing="10">
+               <Button onAction="#updateChartIncome" styleClass="main-button" text="Обновить график" />
+               <Button onAction="#showStatisticsIncome" styleClass="main-button" text="Показать статистику" />
+           </HBox>
+       </VBox>
+   </items>
+</SplitPane>
