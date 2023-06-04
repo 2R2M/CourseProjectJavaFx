@@ -5,20 +5,25 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class BudgetController implements Initializable {
+    public TextField incomeTitleField;
+    public DatePicker incomeDateField;
+    public TextField incomeSumField;
+    public TextField expenseTitleField;
+    public DatePicker expenseDateField;
+    public TextField expenseSumField;
+    public Button deleteExpense;
+    public Button deleteIncome;
     private Budget budget;
-    private JDBCPostgreSQL db;
+
+    DAOFactoryDB daoFactoryDB;
+    ExpenseDB expenseDB;
+    IncomeDB incomeDB;
     @FXML
     public ListView expenseListView;
     @FXML
@@ -28,45 +33,50 @@ public class BudgetController implements Initializable {
         this.budget = budget;
     }
 
-    public void setDb(JDBCPostgreSQL db) {
-        this.db = db;
-    }
 
     public void addIncome(ActionEvent actionEvent) {
+        incomeDB.addInf(new Income(incomeTitleField.getText(), Double.parseDouble(incomeSumField.getText()),String.valueOf(incomeDateField.getValue()), budget.getID()));
     }
 
     public void addExpense(ActionEvent actionEvent) {
 
-
+        expenseDB.addInf(new Expense(expenseTitleField.getText(), Double.parseDouble(expenseSumField.getText()), String.valueOf(expenseDateField.getValue()), budget.getID()));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        daoFactoryDB = new DAOFactoryDB();
+        expenseDB = (ExpenseDB) daoFactoryDB.createExpenseDB();
+        incomeDB = (IncomeDB) daoFactoryDB.createIncomeDB();
+        deleteExpense.setOnAction(event -> {
+            Expense expense = (Expense) expenseListView.getSelectionModel().getSelectedItem();
+            if (expense != null) {
+                expenseDB.deleteInf(expense.getID());
+            }
+            else
+            {
+                System.out.println("Ошибка");
+            }
+        });
+
+        deleteIncome.setOnAction(event -> {
+            Income income = (Income) incomeListView.getSelectionModel().getSelectedItem();
+            if (income != null) {
+                incomeDB.deleteInf(income.getID());
+            }
+            else
+            {
+                System.out.println("Ошибка");
+            }
+        });
 
     }
 
+
+
     public void uploadExpence(ActionEvent actionEvent) {
-        List<Expense> expenses= new ArrayList<Expense>();
-        List<Income> incomes = new ArrayList<Income>();
-
-        try {
-            PreparedStatement ps = db.getConnection().prepareStatement("SELECT * FROM expense WHERE id_budget="+budget.getID());
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-
-                Expense expense = new Expense(rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getDouble("sum"),
-                        rs.getDate("date"),
-                        rs.getInt("id_budget")
-                );
-                expenses.add(expense);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        ObservableList<Expense> observableExpenseList = FXCollections.observableArrayList(expenses);
+        expenseDB.setId_budget(budget.getID());
+        ObservableList<Expense> observableExpenseList = FXCollections.observableArrayList(expenseDB.getAllInf());
         expenseListView.setItems(observableExpenseList);
         expenseListView.setCellFactory(param -> new ListCell<Expense>() {
             @Override
@@ -83,27 +93,8 @@ public class BudgetController implements Initializable {
     }
 
     public void uploadIncome(ActionEvent actionEvent) {
-
-        List<Income> incomes = new ArrayList<Income>();
-
-        try {
-            PreparedStatement ps = db.getConnection().prepareStatement("SELECT * FROM income WHERE id_budget="+budget.getID());
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-
-                Income income = new Income(rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getDouble("sum"),
-                        rs.getDate("date"),
-                        rs.getInt("id_budget")
-                );
-                incomes.add(income);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        ObservableList<Income> observableIncomeList = FXCollections.observableArrayList(incomes);
+        incomeDB.setIdBudget(budget.getID());
+        ObservableList<Income> observableIncomeList = FXCollections.observableArrayList(incomeDB.getAllInf());
         incomeListView.setItems(observableIncomeList);
         incomeListView.setCellFactory(param -> new ListCell<Income>() {
             @Override
@@ -117,9 +108,12 @@ public class BudgetController implements Initializable {
                 }
             }
         });
+
+
     }
 
     public void DeleteIncome(ActionEvent actionEvent) {
+        
     }
 
     public void DeleteExpense(ActionEvent actionEvent) {

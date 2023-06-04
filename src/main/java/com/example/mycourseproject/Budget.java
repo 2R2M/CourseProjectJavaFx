@@ -10,6 +10,9 @@ public class Budget {
         this.title = title;
     }
 
+    public Budget(String title) {
+        this.title = title;
+    }
 
     public int getID() {
         return ID;

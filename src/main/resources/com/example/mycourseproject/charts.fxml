@@ -4,32 +4,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.5" prefHeight="452.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.Charts">
+<SplitPane dividerPositions="0.5" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.Charts">
    <items>
-
-          <VBox spacing="10">
-           <HBox spacing="10">
-
-                <Label styleClass="title-label" text="Графики расходов" />
-               <LineChart fx:id="expenseChart" styleClass="line-chart">
+      <Pane>
+         <children>
+               <LineChart fx:id="incomeChart" layoutX="-7.0" layoutY="17.0" prefHeight="422.0" prefWidth="453.0" styleClass="line-chart">
                    <xAxis>
-                       <CategoryAxis fx:id="xAxis_expense" />
+                       <CategoryAxis fx:id="xAxis_expense"  />
                    </xAxis>
                    <yAxis>
                        <NumberAxis fx:id="yAxis_expense" />
                    </yAxis>
                </LineChart>
-           </HBox>
-           <HBox spacing="10">
-               <Button onAction="#updateChartExpense" styleClass="main-button" text="Обновить график" />
-               <Button onAction="#showStatistics" styleClass="main-button" text="Показать статистику" />
-           </HBox>
-       </VBox>
-       <VBox spacing="10">
-           <HBox spacing="10">
 
-               <Label styleClass="title-label" text="Графики расходов" />
-               <LineChart fx:id="incomeChart" styleClass="line-chart">
+                      <Label styleClass="title-label" text="Графики расходов" />
+              <HBox layoutX="98.0" layoutY="445.0" spacing="10">
+                  <Button onAction="#updateChartIncome" styleClass="main-button" text="Обновить график" />
+                  <Button onAction="#showStatisticsIncom" styleClass="main-button" text="Показать статистику" />
+              </HBox>
+            <TextField fx:id="incSum" layoutX="101.0" layoutY="503.0" prefHeight="25.0" prefWidth="101.0" />
+            <TextField fx:id="incAvg" layoutX="101.0" layoutY="543.0" prefHeight="25.0" prefWidth="101.0" />
+            <Label layoutX="5.0" layoutY="507.0" text="Общая сумма" />
+            <Label layoutX="5.0" layoutY="544.0" prefHeight="49.0" prefWidth="92.0" text="Средний доход (в день)" wrapText="true" />
+            <TextField fx:id="incMed" layoutX="291.0" layoutY="503.0" prefHeight="25.0" prefWidth="101.0" />
+            <Label layoutX="220.0" layoutY="507.0" text="Медиана" />
+            <Pane layoutX="7.0" layoutY="14.0" prefHeight="422.0" prefWidth="440.0" />
+         </children>
+      </Pane>
+      <Pane>
+         <children>
+               <LineChart fx:id="expenseChart" layoutX="-8.0" layoutY="17.0" prefHeight="422.0" prefWidth="453.0" styleClass="line-chart">
                    <xAxis>
                        <CategoryAxis fx:id="xAxis_income" />
                    </xAxis>
@@ -37,11 +41,18 @@
                        <NumberAxis fx:id="yAxis_income" />
                    </yAxis>
                </LineChart>
-           </HBox>
-           <HBox spacing="10">
-               <Button onAction="#updateChartIncome" styleClass="main-button" text="Обновить график" />
-               <Button onAction="#showStatisticsIncome" styleClass="main-button" text="Показать статистику" />
-           </HBox>
-       </VBox>
+              <HBox layoutX="98.0" layoutY="465.0" spacing="10">
+                  <Button onAction="#updateChartExpense" styleClass="main-button" text="Обновить график" />
+                  <Button onAction="#showStatisticsExpense" styleClass="main-button" text="Показать статистику" />
+              </HBox>
+             <TextField fx:id="expSum" layoutX="101.0" layoutY="503.0" prefHeight="25.0" prefWidth="101.0" />
+             <TextField fx:id="expAvg" layoutX="101.0" layoutY="543.0" prefHeight="25.0" prefWidth="101.0" />
+             <Label layoutX="10.0" layoutY="507.0" text="Общая сумма" />
+             <Label layoutX="10.0" layoutY="544.0" prefHeight="49.0" prefWidth="92.0" text="Средний доход (в день)" wrapText="true" />
+             <TextField fx:id="expMed" layoutX="291.0" layoutY="503.0" prefHeight="25.0" prefWidth="101.0" />
+             <Label layoutX="220.0" layoutY="507.0" text="Медиана" />
+            <Pane prefHeight="422.0" prefWidth="440.0" />
+         </children>
+      </Pane>
    </items>
 </SplitPane>

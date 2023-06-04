@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
 
         scene.getStylesheets().add(getClass().getResource("/com/example/mycourseproject/styles/hellostryle.css").toString());
         //scene.getStylesheets().add(getClass().getResource("hellostyle.css").toString());
-        stage.setTitle("Hello!");
+        stage.setTitle("Управление бюджетом");
         stage.setScene(scene);
         stage.show();
     }

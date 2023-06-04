@@ -4,16 +4,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.HelloController">
-    <padding>
-        <Insets bottom="10" left="10" right="10" top="10" />
-    </padding>
+<Pane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mycourseproject.HelloController">
 
-    <Label styleClass="title-label" text="Мои бюджеты" />
+    <children>
+   
+          <Label layoutX="64.0" layoutY="14.0" styleClass="title-label" text="Мои бюджеты" />
 
-    <ListView fx:id="budgetListView" styleClass="list-view" />
-   <Button mnemonicParsing="false" text="Обновить"  onAction="#updateBudget"/>
-    <Button onAction="#createBudget" styleClass="main-button" text="Создать бюджет" />
-    <Button onAction="#openExpenseChart" styleClass="main-button" text="Посмотреть графики расходов" />
-    <Button onAction="#openExpenseForecast" styleClass="main-button" text="Спрогнозировать расходы" />
-</VBox>
+          <ListView fx:id="budgetListView" layoutX="128.0" layoutY="31.0" prefHeight="400.0" prefWidth="344.0" styleClass="list-view" />
+       <HBox layoutX="122.0" layoutY="461.0">
+           <children>
+      <VBox>
+         <children>
+            <Button mnemonicParsing="false" onAction="#updateBudget" text="Обновить" />
+             <Button onAction="#openExpenseChart" styleClass="main-button" text="Посмотреть графики" />
+             <Button onAction="#openExpenseForecast" styleClass="main-button" text="Спрогнозировать расходы" />
+         </children>
+      </VBox>
+               <VBox>
+                   <padding>
+                       <Insets bottom="10" left="10" right="10" top="10" />
+                   </padding>
+                   <Label styleClass="title-label" text="Создание бюджета" />
+                   <TextField fx:id="nameTextField" promptText="Введите название" styleClass="text-field" />
+                   <Button onAction="#createBudget" styleClass="main-button" text="Создать бюджет" />
+               </VBox>
+           </children>
+       </HBox>
+   </children>
+</Pane>

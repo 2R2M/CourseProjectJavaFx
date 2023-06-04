@@ -95,6 +95,13 @@
         <artifactId>httpclient</artifactId>
         <version>4.5.13</version>
     </dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>libraries-bom</artifactId>
+            <version>26.12.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
     <dependency>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>jetty-util</artifactId>

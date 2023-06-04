@@ -16,4 +16,5 @@ module com.example.mycourseproject {
 
     opens com.example.mycourseproject to javafx.fxml;
     exports com.example.mycourseproject;
+
 }
