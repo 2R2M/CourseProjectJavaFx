@@ -1,5 +1,11 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.controller;
 
+import com.example.mycourseproject.model.Budget;
+import com.example.mycourseproject.db.DAOFactoryDB;
+import com.example.mycourseproject.db.ExpenseDB;
+import com.example.mycourseproject.db.IncomeDB;
+import com.example.mycourseproject.model.Expense;
+import com.example.mycourseproject.model.Income;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

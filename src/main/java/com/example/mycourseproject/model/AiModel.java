@@ -1,4 +1,4 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.model;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
@@ -29,7 +29,7 @@ public class AiModel {
         this.text = text;
     }
 
-    AiModel(){}
+    public AiModel(){}
     public void sendOpenAIRequest(String prompt) throws Exception {
         String apiUrl = "https://api.openai.com/v1/engines/text-davinci-003/completions";
         CloseableHttpClient httpClient = HttpClients.createDefault();

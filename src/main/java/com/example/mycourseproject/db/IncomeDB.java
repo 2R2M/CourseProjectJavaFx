@@ -1,4 +1,6 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.db;
+
+import com.example.mycourseproject.model.Income;
 
 import java.sql.*;
 import java.util.ArrayList;

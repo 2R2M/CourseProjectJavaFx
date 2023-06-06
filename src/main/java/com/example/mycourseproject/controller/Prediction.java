@@ -1,5 +1,8 @@
-package com.example.mycourseproject;
-
+package com.example.mycourseproject.controller;
+import com.example.mycourseproject.model.AiModel;
+import com.example.mycourseproject.db.ChartDB;
+import com.example.mycourseproject.db.DAOFactoryDB;
+import com.example.mycourseproject.model.AiModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

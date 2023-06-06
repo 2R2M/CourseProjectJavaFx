@@ -1,4 +1,6 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.db;
+
+import com.example.mycourseproject.db.DAOCharts;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ChartDB implements DAOCharts{
+public class ChartDB implements DAOCharts {
     Connection connection;
     public ChartDB(Connection connection){
         this.connection = connection;

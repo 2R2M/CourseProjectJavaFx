@@ -1,4 +1,4 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.model;
 
 import java.sql.Date;
 import java.time.LocalDate;

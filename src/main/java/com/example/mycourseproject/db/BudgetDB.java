@@ -1,10 +1,12 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.db;
+
+import com.example.mycourseproject.model.Budget;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BudgetDB implements DAOData<Budget>{
+public class BudgetDB implements DAOData<Budget> {
     Connection connection;
     public BudgetDB(Connection connection)
     {

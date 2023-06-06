@@ -1,5 +1,7 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.controller;
 
+import com.example.mycourseproject.db.ChartDB;
+import com.example.mycourseproject.db.DAOFactoryDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,9 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
 
 public class Charts implements Initializable {
@@ -29,7 +28,7 @@ public class Charts implements Initializable {
     public TextField incAvg;
     public TextField incMed;
     public CategoryAxis xAxis_expense;
-    private  DAOFactoryDB daoFactoryDB;
+    private DAOFactoryDB daoFactoryDB;
     ChartDB chartDB;
 
 

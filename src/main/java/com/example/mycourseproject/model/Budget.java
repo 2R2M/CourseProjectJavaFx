@@ -1,4 +1,4 @@
-package com.example.mycourseproject;
+package com.example.mycourseproject.model;
 
 public class Budget {
     private int ID;

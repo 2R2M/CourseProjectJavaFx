@@ -1,0 +1,333 @@
+@startuml
+
+title __MYCOURSEPROJECT's Class Diagram__\n
+
+
+    namespace om.example.mycourseproject {
+        namespace controller {
+          class com.example.mycourseproject.controller.BudgetController {
+              + deleteExpense : Button
+              + deleteIncome : Button
+              + expenseDateField : DatePicker
+              + expenseListView : ListView
+              + expenseSumField : TextField
+              + expenseTitleField : TextField
+              + incomeDateField : DatePicker
+              + incomeListView : ListView
+              + incomeSumField : TextField
+              + incomeTitleField : TextField
+              + DeleteExpense()
+              + DeleteIncome()
+              + addExpense()
+              + addIncome()
+              + initialize()
+              + setBudget()
+              + uploadExpence()
+              + uploadIncome()
+          }
+        }
+      }
+
+
+
+      namespace om.example.mycourseproject {
+        namespace controller {
+          class com.example.mycourseproject.controller.Charts {
+              + expAvg : TextField
+              + expMed : TextField
+              + expSum : TextField
+              + expenseChart : LineChart
+              + incAvg : TextField
+              + incMed : TextField
+              + incSum : TextField
+              + incomeChart : LineChart
+              + xAxis : CategoryAxis
+              + xAxis_expense : CategoryAxis
+              + yAxis : NumberAxis
+              + initialize()
+              + showStatisticsExpense()
+              + showStatisticsIncom()
+              + showStatisticsIncome()
+              + updateChartExpense()
+              + updateChartIncome()
+          }
+        }
+      }
+
+
+
+      namespace om.example.mycourseproject {
+        namespace controller {
+          class com.example.mycourseproject.controller.HelloController {
+              + budgetListView : ListView
+              + nameTextField : TextField
+              - opnCatWin : Button
+              - welcomeText : Label
+              + createBudget()
+              + initialize()
+              + openExpenseChart()
+              + openExpenseForecast()
+              + updateBudget()
+          }
+        }
+      }
+
+
+
+
+      namespace om.example.mycourseproject {
+        namespace controller {
+          class com.example.mycourseproject.controller.Prediction {
+              ~ amounts : List<Double>
+              ~ dates : List<String>
+              - AnsTextArea : TextArea
+              + generateAnswer()
+              + initialize()
+          }
+        }
+      }
+
+  
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        class com.example.mycourseproject.db.BudgetDB {
+            ~ connection : Connection
+            + BudgetDB()
+            + addInf()
+            + deleteInf()
+            + getAllInf()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        class com.example.mycourseproject.db.ChartDB {
+            ~ connection : Connection
+            + ChartDB()
+            + FillListsExpense()
+            + FillListsIncome()
+            + avgExpense()
+            + avgIncome()
+            + medExpense()
+            + medIncome()
+            + sumExpense()
+            + sumIncome()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        interface com.example.mycourseproject.db.DAOCharts {
+            {abstract} + FillListsExpense()
+            {abstract} + FillListsIncome()
+            {abstract} + avgExpense()
+            {abstract} + avgIncome()
+            {abstract} + medExpense()
+            {abstract} + medIncome()
+            {abstract} + sumExpense()
+            {abstract} + sumIncome()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        interface com.example.mycourseproject.db.DAOData {
+            {abstract} + addInf()
+            {abstract} + deleteInf()
+            {abstract} + getAllInf()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        interface com.example.mycourseproject.db.DAOFactory {
+            {abstract} + createBudgetDB()
+            {abstract} + createChartsDB()
+            {abstract} + createExpenseDB()
+            {abstract} + createIncomeDB()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        class com.example.mycourseproject.db.DAOFactoryDB {
+            {static} ~ DB_URL : String
+            {static} ~ PASS : String
+            {static} ~ USER : String
+            ~ connection : Connection
+            + DAOFactoryDB()
+            + createBudgetDB()
+            + createChartsDB()
+            + createExpenseDB()
+            + createIncomeDB()
+        }
+      }
+    }
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        class com.example.mycourseproject.db.ExpenseDB {
+            ~ connection : Connection
+            - idBudget : int
+            + ExpenseDB()
+            + addInf()
+            + deleteInf()
+            + getAllInf()
+            + getId_budget()
+            + setId_budget()
+        }
+      }
+    }
+
+
+    namespace om.example.mycourseproject {
+      namespace db {
+        class com.example.mycourseproject.db.IncomeDB {
+            ~ connection : Connection
+            - idBudget : int
+            + IncomeDB()
+            + addInf()
+            + deleteInf()
+            + getAllInf()
+            + getIdBudget()
+            + setIdBudget()
+        }
+      }
+    }
+
+  
+
+    namespace om.example.mycourseproject {
+      namespace model {
+        class com.example.mycourseproject.model.AiModel {
+            - apiKey : String
+            - text : String
+            + AiModel()
+            + DataPreparation()
+            + ReverseDataPreparation()
+            + getText()
+            + sendOpenAIRequest()
+            + setText()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace model {
+        class com.example.mycourseproject.model.Budget {
+            - ID : int
+            - title : String
+            + Budget()
+            + Budget()
+            + Budget()
+            + getID()
+            + getTitle()
+            + setID()
+            + setTitle()
+        }
+      }
+    }
+
+
+
+
+    namespace om.example.mycourseproject {
+      namespace model {
+        class com.example.mycourseproject.model.Expense {
+            - ID : int
+            - ID_budget : int
+            - date : String
+            - sum : Double
+            - title : String
+            + Expense()
+            + Expense()
+            + getDate()
+            + getID()
+            + getID_budget()
+            + getSum()
+            + getTitle()
+            + setDate()
+            + setID()
+            + setID_budget()
+            + setSum()
+            + setTitle()
+        }
+      }
+    }
+
+
+
+    namespace om.example.mycourseproject {
+      namespace model {
+        class com.example.mycourseproject.model.Income {
+            - ID_budget : int
+            - date : String
+            - id : int
+            - sum : double
+            - title : String
+            + Income()
+            + Income()
+            + getDate()
+            + getID()
+            + getID_budget()
+            + getSum()
+            + getTitle()
+            + setDate()
+            + setID_budget()
+            + setSum()
+            + setTitle()
+        }
+      }
+    }
+
+  
+
+  com.example.mycourseproject.controller.BudgetController .up.|> javafx.fxml.Initializable
+  com.example.mycourseproject.controller.BudgetController o-- com.example.mycourseproject.db.DAOFactoryDB : daoFactoryDB
+  com.example.mycourseproject.controller.BudgetController o-- com.example.mycourseproject.db.ExpenseDB : expenseDB
+  com.example.mycourseproject.controller.BudgetController o-- com.example.mycourseproject.db.IncomeDB : incomeDB
+  com.example.mycourseproject.controller.BudgetController o-- com.example.mycourseproject.model.Budget : budget
+  com.example.mycourseproject.controller.Charts .up.|> javafx.fxml.Initializable
+  com.example.mycourseproject.controller.Charts o-- com.example.mycourseproject.db.ChartDB : chartDB
+  com.example.mycourseproject.controller.Charts o-- com.example.mycourseproject.db.DAOFactoryDB : daoFactoryDB
+  com.example.mycourseproject.controller.HelloApplication -up-|> javafx.application.Application
+  com.example.mycourseproject.controller.HelloController .up.|> javafx.fxml.Initializable
+  com.example.mycourseproject.controller.HelloController o-- com.example.mycourseproject.db.BudgetDB : budgetDB
+  com.example.mycourseproject.controller.HelloController o-- com.example.mycourseproject.db.DAOFactoryDB : daoFactoryDB
+  com.example.mycourseproject.controller.Prediction .up.|> javafx.fxml.Initializable
+  com.example.mycourseproject.controller.Prediction o-- com.example.mycourseproject.model.AiModel : aiModel
+  com.example.mycourseproject.controller.Prediction o-- com.example.mycourseproject.db.ChartDB : chartDB
+  com.example.mycourseproject.db.BudgetDB .up.|> com.example.mycourseproject.db.DAOData
+  com.example.mycourseproject.db.ChartDB .up.|> com.example.mycourseproject.db.DAOCharts
+  com.example.mycourseproject.db.DAOFactoryDB .up.|> com.example.mycourseproject.db.DAOFactory
+  com.example.mycourseproject.db.ExpenseDB .up.|> com.example.mycourseproject.db.DAOData
+  com.example.mycourseproject.db.IncomeDB .up.|> com.example.mycourseproject.db.DAOData
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
